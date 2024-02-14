@@ -14,18 +14,21 @@ builder.Services.AddAuthentication(options => {
 }).AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
 .AddOpenIdConnect("oidc", options =>
 {
+    //options.Configuration = new OpenIdConnectConfiguration();
+    //options.RequireHttpsMetadata = false;
     options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
     options.GetClaimsFromUserInfoEndpoint = true;
     options.ClientId = "usatobraziladmin";
     options.ClientSecret = "secret";
     options.ResponseType = "code";
 
+    //options.RequireHttpsMetadata = false;
+
     options.TokenValidationParameters.NameClaimType = "name";
     options.TokenValidationParameters.RoleClaimType = "role";
     options.Scope.Add("usatobraziladmin");
     options.SaveTokens = true;
     //options.MetadataAddress = "https://localhost:5093/.well-known/openid-configuration";
-    //options.Configuration = new OpenIdConnectConfiguration();
 
 });
 

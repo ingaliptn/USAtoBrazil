@@ -40,6 +40,9 @@ namespace USAtoBrazil.Services.Identity
                 AllowedGrantTypes = GrantTypes.Code,
                 RedirectUris = { "https://localhost:44396/signin-oidc" },
                 PostLogoutRedirectUris = { "https://localhost:44396/signout-callback-oidc" },
+                //                RedirectUris = { "http://localhost:44396/signin-oidc" },
+                //PostLogoutRedirectUris = { "http://localhost:44396/signout-callback-oidc" },
+
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
