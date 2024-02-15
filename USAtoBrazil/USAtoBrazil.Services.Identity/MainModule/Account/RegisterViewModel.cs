@@ -5,8 +5,8 @@ namespace USAtoBrazil.Services.Identity.MainModule.Account
 {
     public class RegisterViewModel
     {
-        [Required]
-        public string Username { get; set; }
+        //[Required]
+        //public string Username { get; set; }
 
         [Required]
         public string Email { get; set; }

@@ -25,10 +25,12 @@ namespace USAtoBrazil.Web.Controllers
         {
             return RedirectToAction(nameof(Index));
         }
+
         public IActionResult Register()
         {
             return View();
         }
+
         public IActionResult Logout()
         {
             return SignOut("Cookies", "oidc");

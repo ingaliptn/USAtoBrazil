@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\USAtoBrazil",
-    "\\USAtoBrazil\\USAtoBrazil.Services.Identity",
-    "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\Lib"
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity"
   ],
+  "SelectedNode": "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\SD.cs",
   "PreviewInSolutionExplorer": false
 }

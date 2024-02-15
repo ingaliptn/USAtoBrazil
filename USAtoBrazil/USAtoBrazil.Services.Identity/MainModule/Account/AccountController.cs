@@ -46,7 +46,7 @@ namespace IdentityServerHost.Quickstart.UI
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events, 
+            IEventService events,
             UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager
             )
         {
@@ -127,7 +127,7 @@ namespace IdentityServerHost.Quickstart.UI
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName,
                         clientId: context?.Client.ClientId));
 
-                    if(context != null)
+                    if (context != null)
                     {
                         return Redirect(model.ReturnUrl);
                     }
@@ -145,7 +145,7 @@ namespace IdentityServerHost.Quickstart.UI
                     }
                 }
 
-                await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials", clientId:context?.Client.ClientId));
+                await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials", clientId: context?.Client.ClientId));
                 ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
             }
 
@@ -154,7 +154,7 @@ namespace IdentityServerHost.Quickstart.UI
             return View(vm);
         }
 
-        
+
         /// <summary>
         /// Show logout page
         /// </summary>
@@ -217,7 +217,7 @@ namespace IdentityServerHost.Quickstart.UI
 
 
         /// <summary>
-        
+
         /// </summary>
 
         [HttpGet]
@@ -241,7 +241,8 @@ namespace IdentityServerHost.Quickstart.UI
 
                 var user = new AppUser
                 {
-                    UserName = model.Username,
+                    //UserName = model.Username,
+                    UserName = model.Email,
                     Email = model.Email,
                     EmailConfirmed = true,
                     FirstName = model.FirstName,
@@ -253,8 +254,8 @@ namespace IdentityServerHost.Quickstart.UI
                     State = model.State,
                     CEP = model.CEP,
                     Phone = model.Phone,
-                    CPF = model.CPF
-    };
+                    CPF = model.CPF,
+                };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -273,18 +274,18 @@ namespace IdentityServerHost.Quickstart.UI
                     await _userManager.AddToRoleAsync(user, model.RoleName);
 
                     await _userManager.AddClaimsAsync(user, new Claim[]{
-                            new Claim(JwtClaimTypes.Name, model.Username),
+                            new Claim(JwtClaimTypes.Name, model.Email),
                             new Claim(JwtClaimTypes.GivenName, model.FirstName),
                             new Claim(JwtClaimTypes.FamilyName, model.LastName),
                             new Claim(JwtClaimTypes.Email, model.Email),
-                            new Claim(JwtClaimTypes.WebSite, "http://"+model.Username+".com"),
+                            new Claim(JwtClaimTypes.WebSite, "http://"+model.Email+".com"),
                             new Claim(JwtClaimTypes.Role,"User") });
 
                     var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
-                    var loginresult = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, lockoutOnFailure: true);
+                    var loginresult = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, lockoutOnFailure: true);
                     if (loginresult.Succeeded)
                     {
-                        var checkuser = await _userManager.FindByNameAsync(model.Username);
+                        var checkuser = await _userManager.FindByNameAsync(model.Email);
                         await _events.RaiseAsync(new UserLoginSuccessEvent(checkuser.UserName, checkuser.Id, checkuser.UserName, clientId: context?.Client.ClientId));
 
                         if (context != null)
@@ -338,7 +339,7 @@ namespace IdentityServerHost.Quickstart.UI
                 {
                     EnableLocalLogin = local,
                     ReturnUrl = returnUrl,
-                    Username = context?.LoginHint,
+                    Email = context?.LoginHint,
                 };
 
                 if (!local)
@@ -379,7 +380,7 @@ namespace IdentityServerHost.Quickstart.UI
                 AllowRememberLogin = AccountOptions.AllowRememberLogin,
                 EnableLocalLogin = allowLocal && AccountOptions.AllowLocalLogin,
                 ReturnUrl = returnUrl,
-                Username = context?.LoginHint,
+                Email = context?.LoginHint,
                 ExternalProviders = providers.ToArray()
             };
         }
