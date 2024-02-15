@@ -3,26 +3,113 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-
-    <title>Duende IdentityServer</title>
+@*     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+ *@    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/images/favicon.ico">
     
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    @* <link rel="icon" type="image/x-icon" href="~/favicon.ico" /> *@
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <title>USAtoBRAZIL</title>
+
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/icons/flaticon/flaticon.css" rel="stylesheet">
+
+    <!--PLUGINS STYLE-->
+    <link href="~/css/plugins/animate.min.css" rel="stylesheet">
+    <link href="~/css/plugins/owl.carousel.min.css" rel="stylesheet">
+
+    <!--THEME STYLE-->
+    <link href="~/css/main_style.css" rel="stylesheet">
+    <link href="~/css/theme_style.css" rel="stylesheet">
 </head>
-<body>
+<body class="default_theme pageCenter_Style" style="background:url('images/brazil_color.png') no-repeat fixed top right rgba(210,255,218,1);">
+
+    <div class="page_wrapper">
+
     <partial name="_Nav" />
    
-    <div class="container body-container">
-        @RenderBody()
-    </div>
+    <main class="main_container_wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+
+
+    <footer id="section_panel" class="footer_part">
+        <div class="container">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer_logo"><a href="index.html"><img src="~/images/main_logo_ft.png" alt="USAtoBRAZIL" title="USAtoBRAZIL" /></a></div>
+                        <div class="footer_content_block">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="footer_content_block">
+                            <h5>Quick Links</h5>
+                            <div class="bottom_links_line quicLinks_block">
+                                <div class="quickLink_col">
+                                    <a href="#">About us</a>
+                                    <a href="#">Popular Products</a>
+                                    <a href="#">Contact us</a>
+                                </div>
+                                <div class="quickLink_col">
+                                    <a href="#">Privacy Policy</a>
+                                    <a href="#">Terms & Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="footer_content_block">
+                            <h5>News Letter</h5>
+                            <p>Sign up today for hints, tips and the latest product news</p>
+                            <div class="newsletter_inputbox">
+                                <input class="inputNewsEmail" name="" type="text" value="" placeholder="Enter your email">
+                                <button class="formActionBtn"><i class="fa fa-long-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright_part">
+                <div class="copyright_info">Copyright ©<script>document.write(new Date().getFullYear());</script> USAtoBRAZIL, All rights reserved</div>
+            </div>
+        </div>
+    </footer>
+    
+</div>
 
     <script src="~/lib/jquery/dist/jquery.slim.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     @RenderSection("scripts", required: false)
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/1.1.9/js/libs/jquery-1.10.2.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!--PLUGINS-->
+    <script src="~/js/plugins/wow.min.js"></script>
+    <script src="~/js/plugins/easing.min.js"></script>
+    <script src="~/js/plugins/owl.carousel.min.js"></script>
+    <script src="~/js/plugins/video.popup.js"></script>
+
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/custom_scripts.js"></script>
+
 </body>
 </html>
+
