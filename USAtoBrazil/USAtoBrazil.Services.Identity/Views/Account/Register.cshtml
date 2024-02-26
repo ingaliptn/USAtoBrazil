@@ -1,13 +1,144 @@
 ﻿@model USAtoBrazil.Services.Identity.MainModule.Account.RegisterViewModel
 
-<div class="login-page">
-    <div class="lead">
-        <h1>Register</h1>
-        <p>Choose how to register</p>
+
+
+@* <partial name="_ValidationSummary" />
+ *@
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="bodyWrap_bg signupFormWrap">
+            <h2>Create Your Account</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+
+            <form asp-route="Login">
+                <input type="hidden" asp-for="ReturnUrl" />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="form-label">First Name</label>
+                            <input class="form-control" type="text" asp-for="FirstName" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="LastName" class="form-label">Last Name</label>
+                            <input class="form-control" type="text" asp-for="LastName" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label asp-for="Address1" class="form-label">Address</label>
+                            <input class="form-control" type="text" asp-for="Address1" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label asp-for="Address2" class="form-label">Address 2</label>
+                            <input class="form-control" type="text" asp-for="Address2" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="Region" class="form-label">Region</label>
+                            <input class="form-control" type="text" asp-for="Region" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="City" class="form-label">City</label>
+                            <input class="form-control" type="text" asp-for="City" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="State" class="form-label">State</label>
+                            <input class="form-control" type="text" asp-for="State" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="CEP" class="form-label">CEP</label>
+                            <input class="form-control" type="text" asp-for="CEP" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input class="form-control" asp-for="Email" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="Phone" class="form-label">Phone</label>
+                            <input class="form-control" type="text" asp-for="Phone" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="CPF" class="form-label">CPF</label>
+                            <input class="form-control" type="text" asp-for="CPF" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input class="form-control" type="password" asp-for="Password" placeholder="" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">Confirm Password</label>
+                            <input class="form-control" name="" type="password" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="RoleName"></label>
+                    <select asp-for="RoleName" class="form-control" asp-items="@(new SelectList(ViewBag.message))"></select>
+                </div>
+
+                <!--
+                <div class="signup_checkbox_lines">
+                    <div class="form-group form-check">
+                        <input class="form-check-input" name="" id="mcEmail_update_checkbox" type="checkbox" value="">
+                        <label for="mcEmail_update_checkbox" class="form-check-label">I agree to receive email updates from USAtoBRAZIL (Optional)</label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" name="" id="mcTC_agree_checkbox" type="checkbox" value="">
+                        <label for="mcTC_agree_checkbox" class="form-check-label">I have read and agree to USAtoBRAZIL <a href="#">Terms of Service</a></label>
+                    </div>
+                </div> -->
+
+                <div class="formSubmit_btns margin_top10px">
+                    <button class="btn btn-sucess" name="button" value="Register">Submit</button>
+                </div>
+            </form>
+
+            <div class="signup_bottom_infoLine">
+                <span>Already registered? <a href="@Url.Action("Login",new {Model.ReturnUrl })">Login</a></span>
+            </div>
+
+        </div>
     </div>
+</div>
 
-    <partial name="_ValidationSummary" />
 
+@*
     <div class="row">
 
         <div class="col-sm-6">
@@ -145,12 +276,12 @@
                             <select asp-for="RoleName" class="form-control" asp-items="@(new SelectList(ViewBag.message))"></select>
                         </div>
                         <button class="btn btn-primary" name="button" value="Register">Register</button>
-                        <button class="btn btn-secondary" name="button" value="cancel">Cancel</button> *@
+                        <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
                     </form>
 
 
 
-                    
+
 
 
 
@@ -165,4 +296,4 @@
 
 
     </div>
-</div>
+</div> *@

@@ -1,59 +1,121 @@
 @model LoginViewModel
 
-<div class="login-page">
-    <div class="lead">
-        <h1>Login</h1>
-        <p>Choose how to login</p>
-    </div>
 
-    <partial name="_ValidationSummary" />
+<partial name="_ValidationSummary" />
 
-    <div class="row">
+@* <div class="col-lg-6">
+    <div class="bodyWrap_bg signupFormWrap">
+        <h2>Sign in</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
 
-        @if (Model.EnableLocalLogin)
-        {
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Local Account</h2>
-                    </div>
-
-                    <div class="card-body">
-                        <form asp-route="Login">
-                            <input type="hidden" asp-for="ReturnUrl" />
-
-                            <div class="form-group">
-                                <label asp-for="Username"></label>
-                                <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Password"></label>
-                                <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
-                            </div>
-                            @if (Model.AllowRememberLogin)
-                            {
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" asp-for="RememberLogin">
-                                        <label class="form-check-label" asp-for="RememberLogin">
-                                            Remember My Login
-                                        </label>
-                                    </div>
-                                </div>
-                            }
-                            <button class="btn btn-primary" name="button" value="login">Login</button>
-                            <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
-                        </form>
-                    </div>
-
-                    <div class="card-footer">
-                         <a href="@Url.Action("Register",new {Model.ReturnUrl })">New User? Register</a>
+        <form asp-route="Login">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" placeholder="Email" asp-for="Username" autofocus>
                     </div>
                 </div>
             </div>
-        }
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
 
-        @if (Model.VisibleExternalProviders.Any())
+                        <label asp-for="Password"></label>
+                        <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="loginInfo_addons">
+                <div class="form-group form-check">
+                    <input type="checkbox" name="remember_me" value="1" class="form-check-input" id="exampleCheck1">
+                    <input type="hidden" name="remember_me" value="0">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div>
+                <a href="lost_password.html">Lost Password?</a>
+            </div>
+
+            <div class="formSubmit_btns margin_top10px">
+                <button type="submit" class="btn btn-sucess" onclick="">Submit</button>
+            </div>
+        </form>
+
+        <div class="signup_bottom_infoLine">
+            <span>Not registered yet? <a href="signup.html">Sign up</a></span>
+        </div>
+
+    </div>
+</div> *@
+					                       
+
+
+
+                                @if (Model.EnableLocalLogin)
+                                {
+                        <div class="col-lg-6">
+                            <div class="bodyWrap_bg signupFormWrap">
+                                <h2>Sign in</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+                                                <form asp-route="Login">
+                                                    <input type="hidden" asp-for="ReturnUrl" />
+
+                                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+											                        <label for="firstName" class="form-label">Email</label>
+                                                <input class="form-control" placeholder="Email" asp-for="Username" autofocus>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+
+											                        <label for="firstName" class="form-label">Password</label>
+                                                <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="loginInfo_addons">
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" name="remember_me" value="1" class="form-check-input" id="exampleCheck1">
+                                            @if (Model.AllowRememberLogin)
+                                                    {
+                                                                <input class="form-check-input" asp-for="RememberLogin">
+                                                                <label class="form-check-label" asp-for="RememberLogin">
+                                                                    Remember My Login
+                                                                </label>
+                                                    }
+                                        </div>
+                                        									                        <a href="lost_password.html">Lost Password?</a>
+
+                                    </div>
+                            
+
+                                                    <div class="formSubmit_btns margin_top10px">
+									                        <button  class="btn btn-sucess" name="button" value="login">Submit</button>
+								                        </div>	
+                                                </form>
+                        <div class="signup_bottom_infoLine">
+                        
+
+								                        <span>Not registered yet? <a href="@Url.Action("Register",new {Model.ReturnUrl })">Sign up</a></span>
+							
+                                            </div>
+                                            </div>
+
+                    
+                                        </div>
+                                }
+
+        @* @if (Model.VisibleExternalProviders.Any())
         {
             <div class="col-sm-6">
                 <div class="card">
@@ -78,7 +140,7 @@
                     </div>
                 </div>
             </div>
-        }
+        } *@
 
         @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
         {
@@ -87,5 +149,3 @@
                 There are no login schemes configured for this request.
             </div>
         }
-    </div>
-</div>

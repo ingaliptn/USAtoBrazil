@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\USAtoBrazil",
-    "\\USAtoBrazil\\USAtoBrazil.Services.Identity"
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity",
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\MainModule",
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\MainModule\\Account",
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\Views",
+    "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\Views\\Shared"
   ],
-  "SelectedNode": "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\SD.cs",
+  "SelectedNode": "\\USAtoBrazil\\USAtoBrazil.Services.Identity\\MainModule\\Account\\AccountController.cs",
   "PreviewInSolutionExplorer": false
 }

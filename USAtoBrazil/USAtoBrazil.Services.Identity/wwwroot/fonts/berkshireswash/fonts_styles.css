@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'berkshire_swashregular';
+    src: url('../../fonts/berkshireswash/berkshireswash-regular-webfont.eot');
+    src: url('../../fonts/berkshireswash/berkshireswash-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/berkshireswash/berkshireswash-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/berkshireswash/berkshireswash-regular-webfont.woff') format('woff'),
+         url('../../fonts/berkshireswash/berkshireswash-regular-webfont.ttf') format('truetype'),
+         url('../../fonts/berkshireswash/berkshireswash-regular-webfont.svg#berkshire_swashregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

@@ -107,6 +107,7 @@ namespace IdentityServerHost.Quickstart.UI
                         // The client is native, so this change in how to
                         // return the response is for better UX for the end user.
                         return this.LoadingPage("Redirect", model.ReturnUrl);
+                        //return RedirectToAction("Login", "Home", "Redirect", model.ReturnUrl);
                     }
 
                     return Redirect(model.ReturnUrl);
@@ -200,6 +201,8 @@ namespace IdentityServerHost.Quickstart.UI
                 // build a return URL so the upstream provider will redirect back
                 // to us after the user has logged out. this allows us to then
                 // complete our single sign-out processing.
+                //string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
+
                 string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
 
                 // this triggers a redirect to the external provider for sign-out
